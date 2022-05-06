@@ -277,7 +277,7 @@ def figure_13_1():
     labels = ['alpha = 2e-4',
               'alpha = 2e-5',
               'alpha = 2e-3']
-    result = pd.DataFrame(columns=labels.append('delta_hedging'))
+    # result = pd.DataFrame(columns=labels.append('delta_hedging'))
 
     rewards = np.zeros((len(agent_generators), num_trials, num_episodes))
     rewards_delta_hedging = np.zeros((len(agent_generators), num_trials, num_episodes))
@@ -291,11 +291,11 @@ def figure_13_1():
     # plt.plot(np.arange(num_episodes) + 1, np.zeros(num_episodes), ls='dashed', color='red', label='0')
     for i, label in enumerate(labels):
         plt.plot(np.arange(num_episodes) + 1, rewards[i].mean(axis=0), label=label)
-        result.iloc[:,i] = rewards[i].mean(axis=0)
+        # result.iloc[:,i] = rewards[i].mean(axis=0)
 
     plt.plot(np.arange(num_episodes) + 1, rewards_delta_hedging[0].mean(axis=0), label='delta_hedging')
-    result.iloc[:, 3] = rewards_delta_hedging[0].mean(axis=0)
-    result.to_csv('results.csv')
+    # result.iloc[:, 3] = rewards_delta_hedging[0].mean(axis=0)
+    # result.to_csv('results.csv')
     plt.ylabel('total reward on episode')
     plt.xlabel('episode')
     plt.legend(loc='lower right')
